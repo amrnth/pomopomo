@@ -23,6 +23,10 @@ final class StatusItemController: NSObject {
         togglePanel(forceShow: true)
     }
 
+    func showPanelForBreakStart() {
+        togglePanel(forceShow: true)
+    }
+
     private func configureStatusItem() {
         guard let button = statusItem.button else { return }
         button.target = self

@@ -116,6 +116,10 @@ final class AppCoordinator: NSObject, PomodoroEngineDelegate {
     }
 
     func engine(_ engine: PomodoroEngine, didTransitionFrom oldPhase: PomodoroPhase?, to newPhase: PomodoroPhase, skipped: Bool) {
+        if newPhase == .break {
+            statusItemController?.showPanelForBreakStart()
+        }
+
         guard !skipped else { return }
 
         switch (oldPhase, newPhase) {

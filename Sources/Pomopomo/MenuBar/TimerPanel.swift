@@ -5,7 +5,6 @@ import PomopomoKit
 @MainActor
 final class TimerPanel: NSPanel, NSWindowDelegate {
     private weak var anchorView: NSView?
-    private var outsideMonitor: Any?
     private let settingsStore: SettingsStore
 
     init(contentViewController: NSViewController, settingsStore: SettingsStore = .shared) {
@@ -50,7 +49,6 @@ final class TimerPanel: NSPanel, NSWindowDelegate {
             positionNearStatusItem()
         }
         orderFrontRegardless()
-        installOutsideClickMonitor()
     }
 
     func repositionIfVisible() {
@@ -62,7 +60,6 @@ final class TimerPanel: NSPanel, NSWindowDelegate {
 
     override func close() {
         persistFrameOrigin()
-        removeOutsideClickMonitor()
         super.close()
     }
 
@@ -123,32 +120,4 @@ final class TimerPanel: NSPanel, NSWindowDelegate {
         return NSScreen.screens.first { $0.frame.contains(probe) }
     }
 
-    private func installOutsideClickMonitor() {
-        removeOutsideClickMonitor()
-        outsideMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
-            Task { @MainActor in
-                self?.handleOutsideClick()
-            }
-        }
-    }
-
-    private func removeOutsideClickMonitor() {
-        if let outsideMonitor {
-            NSEvent.removeMonitor(outsideMonitor)
-            self.outsideMonitor = nil
-        }
-    }
-
-    private func handleOutsideClick() {
-        guard isVisible else { return }
-        let mouseLocation = NSEvent.mouseLocation
-        if !frame.contains(mouseLocation) {
-            close()
-            NotificationCenter.default.post(name: .timerPanelDidClose, object: nil)
-        }
-    }
-}
-
-extension Notification.Name {
-    static let timerPanelDidClose = Notification.Name("TimerPanelDidClose")
 }
