@@ -2,26 +2,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "Pomodoro",
+    name: "Pomopomo",
     platforms: [.macOS(.v15)],
     products: [
-        .executable(name: "Pomodoro", targets: ["Pomodoro"]),
-        .library(name: "PomodoroKit", targets: ["PomodoroKit"]),
+        .executable(name: "Pomopomo", targets: ["Pomopomo"]),
+        .library(name: "PomopomoKit", targets: ["PomopomoKit"]),
     ],
     targets: [
         .target(
-            name: "PomodoroKit",
-            path: "Sources/PomodoroKit"
+            name: "PomopomoKit",
+            path: "Sources/PomopomoKit"
         ),
         .executableTarget(
-            name: "Pomodoro",
-            dependencies: ["PomodoroKit"],
-            path: "Sources/Pomodoro"
+            name: "Pomopomo",
+            dependencies: ["PomopomoKit"],
+            path: "Sources/Pomopomo"
         ),
         .testTarget(
-            name: "PomodoroTests",
-            dependencies: ["PomodoroKit"],
-            path: "Tests/PomodoroTests"
+            name: "PomopomoTests",
+            dependencies: ["PomopomoKit"],
+            path: "Tests/PomopomoTests"
         ),
     ]
 )

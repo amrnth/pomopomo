@@ -4,9 +4,9 @@
 
 | Target | Role |
 |--------|------|
-| `PomodoroKit` | Testable core: engine, settings, logging, formatters |
-| `Pomodoro` | AppKit/SwiftUI executable: menu bar, panel, menus |
-| `PomodoroTests` | Unit tests for engine and markdown rendering |
+| `PomopomoKit` | Testable core: engine, settings, logging, formatters |
+| `Pomopomo` | AppKit/SwiftUI executable: menu bar, panel, menus |
+| `PomopomoTests` | Unit tests for engine and markdown rendering |
 
 ## State Machine
 
@@ -37,7 +37,7 @@ AppDelegate
 
 ## Logging
 
-`ActivityLogger` writes to `~/Documents/Pomodoro/YYYY-MM-DD/YYYY-MM-DD.md`. On each event it:
+`ActivityLogger` writes to `~/Documents/Pomopomo/YYYY-MM-DD/YYYY-MM-DD.md`. On each event it:
 
 1. Reads the existing file (if any)
 2. Parses summary + timeline via `MarkdownRenderer`

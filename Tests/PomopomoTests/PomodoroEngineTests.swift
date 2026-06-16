@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import PomodoroKit
+@testable import PomopomoKit
 
 @MainActor
 private final class RecordingEngineDelegate: PomodoroEngineDelegate {

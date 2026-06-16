@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import PomodoroKit
+@testable import PomopomoKit
 
 struct ActivityLoggerTests {
     private let calendar: Calendar = {
@@ -11,7 +11,7 @@ struct ActivityLoggerTests {
 
     private func makeTempLogRoot() -> URL {
         FileManager.default.temporaryDirectory
-            .appendingPathComponent("PomodoroTests-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("PomopomoTests-\(UUID().uuidString)", isDirectory: true)
     }
 
     private func date(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {
@@ -50,7 +50,7 @@ struct ActivityLoggerTests {
         #expect(FileManager.default.fileExists(atPath: markdownFile.path))
 
         let content = try String(contentsOf: markdownFile, encoding: .utf8)
-        #expect(content.contains("# Pomodoro — 2026-06-16"))
+        #expect(content.contains("# Pomopomo — 2026-06-16"))
         #expect(content.contains("- Pomodoros completed: 1"))
         #expect(content.contains("- Total focus minutes: 25"))
         #expect(content.contains("- First activity: 09:30"))
@@ -88,11 +88,11 @@ struct ActivityLoggerTests {
         let dayOneContent = try String(contentsOf: dayOneFile, encoding: .utf8)
         let dayTwoContent = try String(contentsOf: dayTwoFile, encoding: .utf8)
 
-        #expect(dayOneContent.contains("# Pomodoro — 2026-06-16"))
+        #expect(dayOneContent.contains("# Pomopomo — 2026-06-16"))
         #expect(dayOneContent.contains("- 23:45 — App launched"))
         #expect(!dayOneContent.contains("App quit"))
 
-        #expect(dayTwoContent.contains("# Pomodoro — 2026-06-17"))
+        #expect(dayTwoContent.contains("# Pomopomo — 2026-06-17"))
         #expect(dayTwoContent.contains("- 00:15 — App quit"))
         #expect(!dayTwoContent.contains("App launched"))
     }

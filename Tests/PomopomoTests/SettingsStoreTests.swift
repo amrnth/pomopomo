@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import PomodoroKit
+@testable import PomopomoKit
 
 struct SettingsStoreTests {
     private func makeStore() -> (SettingsStore, UserDefaults, String) {

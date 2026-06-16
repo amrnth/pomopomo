@@ -5,13 +5,13 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleExecutable</key>
-    <string>Pomodoro</string>
+    <string>Pomopomo</string>
     <key>CFBundleIdentifier</key>
-    <string>com.amrnth.pomodoro</string>
+    <string>com.amrnth.pomopomo</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>Pomodoro</string>
+    <string>Pomopomo</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>

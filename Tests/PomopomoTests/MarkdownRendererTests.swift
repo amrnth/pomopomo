@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import PomodoroKit
+@testable import PomopomoKit
 
 struct MarkdownRendererTests {
     private let calendar: Calendar = {
@@ -29,7 +29,7 @@ struct MarkdownRendererTests {
             calendar: calendar
         )
 
-        #expect(markdown.contains("# Pomodoro — 2026-06-16"))
+        #expect(markdown.contains("# Pomopomo — 2026-06-16"))
         #expect(markdown.contains("## Summary"))
         #expect(markdown.contains("- Pomodoros completed: 0"))
         #expect(markdown.contains("## Timeline"))

@@ -1,6 +1,6 @@
-# Pomodoro
+# Pomopomo
 
-A native macOS menu-bar Pomodoro timer built with Swift Package Manager — no Xcode project required.
+A native macOS menu-bar PomoPomo timer built with Swift Package Manager — no Xcode project required.
 
 ## Build & Run
 
@@ -15,7 +15,7 @@ swift test
 bash Scripts/run.sh
 ```
 
-The app bundle is assembled at `build/Pomodoro.app` by `Scripts/bundle.sh`.
+The app bundle is assembled at `build/Pomopomo.app` by `Scripts/bundle.sh`.
 
 ## Features
 
@@ -31,7 +31,7 @@ The app bundle is assembled at `build/Pomodoro.app` by `Scripts/bundle.sh`.
 Logs are written to:
 
 ```
-~/Documents/Pomodoro/YYYY-MM-DD/YYYY-MM-DD.md
+~/Documents/Pomopomo/YYYY-MM-DD/YYYY-MM-DD.md
 ```
 
 Each file contains a live **Summary** (pomodoros completed, focus minutes, first/last activity) and an append-only **Timeline** of timestamped events.
@@ -43,7 +43,7 @@ On startup the app calls `SMAppService.mainApp.register()` to register for launc
 **Unsigned dev builds** often fail this registration. If launch-at-login does not work, use this LaunchAgent fallback:
 
 1. Build the app: `bash Scripts/bundle.sh`
-2. Create `~/Library/LaunchAgents/com.amrnth.pomodoro.plist`:
+2. Create `~/Library/LaunchAgents/com.amrnth.pomopomo.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -51,10 +51,10 @@ On startup the app calls `SMAppService.mainApp.register()` to register for launc
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.amrnth.pomodoro</string>
+    <string>com.amrnth.pomopomo</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/ABSOLUTE/PATH/TO/pomodoro/build/Pomodoro.app/Contents/MacOS/Pomodoro</string>
+        <string>/ABSOLUTE/PATH/TO/pomopomo/build/Pomopomo.app/Contents/MacOS/Pomopomo</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -62,7 +62,7 @@ On startup the app calls `SMAppService.mainApp.register()` to register for launc
 </plist>
 ```
 
-3. Load it: `launchctl load ~/Library/LaunchAgents/com.amrnth.pomodoro.plist`
+3. Load it: `launchctl load ~/Library/LaunchAgents/com.amrnth.pomopomo.plist`
 
 Replace the path with your actual build location. Unload with `launchctl unload` when removing.
 

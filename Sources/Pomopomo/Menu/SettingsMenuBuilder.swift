@@ -1,5 +1,5 @@
 import AppKit
-import PomodoroKit
+import PomopomoKit
 
 @MainActor
 enum SettingsMenuBuilder {

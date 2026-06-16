@@ -22,7 +22,7 @@ public struct MarkdownSummary: Equatable, Sendable {
 public enum MarkdownRenderer {
     public static func heading(for date: Date, calendar: Calendar = .current) -> String {
         let day = DateFormatters.markdownHeadingDate(for: date, calendar: calendar)
-        return "# Pomodoro — \(day)"
+        return "# Pomopomo — \(day)"
     }
 
     public static func renderDocument(

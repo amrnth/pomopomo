@@ -1,7 +1,7 @@
 import Foundation
 
 public enum FilePaths {
-    public static let logRootDirectoryName = "Pomodoro"
+    public static let logRootDirectoryName = "Pomopomo"
 
     public static func logRoot(homeDirectory: URL = FileManager.default.homeDirectoryForCurrentUser) -> URL {
         homeDirectory

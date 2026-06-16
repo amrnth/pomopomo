@@ -16,7 +16,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 @main
-struct PomodoroApp {
+struct PomopomoApp {
     static func main() {
         let app = NSApplication.shared
         let delegate = AppDelegate()

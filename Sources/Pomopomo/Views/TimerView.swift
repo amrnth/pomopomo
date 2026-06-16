@@ -1,6 +1,6 @@
 import AppKit
 import SwiftUI
-import PomodoroKit
+import PomopomoKit
 
 struct TimerView: View {
     @Bindable var engine: PomodoroEngine

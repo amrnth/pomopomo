@@ -1,6 +1,6 @@
 import AppKit
 import SwiftUI
-import PomodoroKit
+import PomopomoKit
 
 @MainActor
 final class TimerPanel: NSPanel, NSWindowDelegate {

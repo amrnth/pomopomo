@@ -1,5 +1,5 @@
 import SwiftUI
-import PomodoroKit
+import PomopomoKit
 
 struct ProgressDots: View {
     let completedCount: Int
