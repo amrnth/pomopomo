@@ -14,6 +14,7 @@ public enum LogEvent: Sendable, Equatable {
     case pomoPomoDurationChanged(minutes: Int)
     case breakDurationChanged(minutes: Int)
     case autoStartToggled(enabled: Bool)
+    case pomoPomoFastForwarded(seconds: Int)
     case timerReset
     case appQuit
 
@@ -50,6 +51,8 @@ public enum LogEvent: Sendable, Equatable {
             "Break duration changed to \(minutes) min"
         case let .autoStartToggled(enabled):
             "Auto-start \(enabled ? "enabled" : "disabled")"
+        case let .pomoPomoFastForwarded(seconds):
+            "PomoPomo fast-forwarded by \(seconds)s"
         case .timerReset:
             "Timer reset"
         case .appQuit:

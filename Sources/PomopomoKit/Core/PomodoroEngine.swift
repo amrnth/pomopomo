@@ -184,6 +184,25 @@ public final class PomodoroEngine {
         notifyUpdate()
     }
 
+    public func fastForward(seconds: Int) {
+        guard state == .running, seconds > 0 else { return }
+        remainingSeconds = max(0, remainingSeconds - seconds)
+        if let currentEnd = endDate {
+            endDate = currentEnd.addingTimeInterval(-TimeInterval(seconds))
+        }
+        if remainingSeconds <= 0 {
+            remainingSeconds = 0
+            stopTickTimer()
+            state = .completed
+            let oldPhase = phase
+            handlePhaseCompletion(wasSkipped: false)
+            if oldPhase != phase {
+                delegate?.engine(self, didTransitionFrom: oldPhase, to: phase, skipped: false)
+            }
+        }
+        notifyUpdate()
+    }
+
     public func tick() {
         guard state == .running else { return }
         syncRemainingFromEndDate()

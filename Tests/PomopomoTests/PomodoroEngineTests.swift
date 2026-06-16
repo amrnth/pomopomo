@@ -394,4 +394,43 @@ struct PomodoroEngineTests {
 
         #expect(delegate.phaseDidBeginRunning == [.break])
     }
+
+    // MARK: - Fast Forward
+
+    @Test func fastForwardReducesRemainingTime() async {
+        let (engine, _, clock) = makeEngine(pomoPomoMinutes: 25)
+        engine.start()
+        clock.advance(by: 60)
+        engine.tick()
+        #expect(engine.remainingSeconds == 24 * 60)
+
+        engine.fastForward(seconds: 300)
+        #expect(engine.remainingSeconds == 24 * 60 - 300)
+        #expect(engine.state == .running)
+    }
+
+    @Test func fastForwardToZeroTriggersCompletion() async {
+        let (engine, _, _) = makeEngine(pomoPomoMinutes: 1, breakMinutes: 5)
+        engine.start()
+        engine.fastForward(seconds: 60)
+        #expect(engine.phase == .break)
+        #expect(engine.remainingSeconds == 5 * 60)
+        #expect(engine.completedPomodorosInCycle == 1)
+    }
+
+    @Test func fastForwardDoesNothingWhenNotRunning() async {
+        let (engine, _, _) = makeEngine(pomoPomoMinutes: 25)
+        let before = engine.remainingSeconds
+        engine.fastForward(seconds: 100)
+        #expect(engine.remainingSeconds == before)
+    }
+
+    @Test func fastForwardDoesNothingWhenPaused() async {
+        let (engine, _, _) = makeEngine(pomoPomoMinutes: 25)
+        engine.start()
+        engine.pause()
+        let before = engine.remainingSeconds
+        engine.fastForward(seconds: 100)
+        #expect(engine.remainingSeconds == before)
+    }
 }

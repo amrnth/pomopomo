@@ -7,6 +7,7 @@ final class AppCoordinator: NSObject, PomodoroEngineDelegate {
     let logger: ActivityLogger
     private let soundPlayer: SoundPlayer
     private var statusItemController: StatusItemController?
+    private var mcpService: MCPService?
 
     init(
         engine: PomodoroEngine = PomodoroEngine(),
@@ -26,9 +27,13 @@ final class AppCoordinator: NSObject, PomodoroEngineDelegate {
 
         statusItemController = StatusItemController(engine: engine, coordinator: self)
         statusItemController?.showPanelAtLaunch()
+
+        mcpService = MCPService(coordinator: self)
+        mcpService?.start()
     }
 
     func terminate() {
+        mcpService?.stop()
         logger.log(.appQuit)
     }
 
@@ -145,5 +150,33 @@ final class AppCoordinator: NSObject, PomodoroEngineDelegate {
 
     func engine(_ engine: PomodoroEngine, didCompletePomodoro number: Int) {
         logger.log(.pomoPomoCompleted(durationMinutes: engine.pomoPomoDurationMinutes))
+    }
+
+    // MARK: - MCP Support
+
+    func fastForward(seconds: Int) {
+        guard engine.state == .running else { return }
+        engine.fastForward(seconds: seconds)
+        logger.log(.pomoPomoFastForwarded(seconds: seconds))
+    }
+
+    func resetTimer() {
+        engine.reset()
+        logger.log(.timerReset)
+    }
+
+    func updatePomoPomoDuration(minutes: Int) {
+        engine.setPomoPomoDuration(minutes: minutes)
+        logger.log(.pomoPomoDurationChanged(minutes: minutes))
+    }
+
+    func updateBreakDuration(minutes: Int) {
+        engine.setBreakDuration(minutes: minutes)
+        logger.log(.breakDurationChanged(minutes: minutes))
+    }
+
+    func updateAutoStart(_ enabled: Bool) {
+        engine.setAutoStart(enabled)
+        logger.log(.autoStartToggled(enabled: enabled))
     }
 }

@@ -25,6 +25,7 @@ The app bundle is assembled at `build/Pomopomo.app` by `Scripts/bundle.sh`.
 - Progress dots for the current 4-pomodoro cycle
 - Settings menu (⋮): PomoPomo/break durations, auto-start, quit
 - Daily markdown activity log
+- Built-in MCP server for agent control (Claude Code, etc.)
 
 ## Activity Logs
 
@@ -65,6 +66,25 @@ On startup the app calls `SMAppService.mainApp.register()` to register for launc
 3. Load it: `launchctl load ~/Library/LaunchAgents/com.amrnth.pomopomo.plist`
 
 Replace the path with your actual build location. Unload with `launchctl unload` when removing.
+
+## MCP Server
+
+When the app launches, it starts an MCP (Model Context Protocol) HTTP server on `127.0.0.1:6390/mcp`. This allows AI agents to control the timer programmatically.
+
+**Available tools:** `get_status`, `play_pause`, `skip`, `fast_forward`, `reset`, `get_settings`, `update_settings`
+
+To connect from Claude Code, add to your MCP config:
+
+```json
+{
+  "mcpServers": {
+    "pomopomo": {
+      "type": "streamable-http",
+      "url": "http://127.0.0.1:6390/mcp"
+    }
+  }
+}
+```
 
 ## Requirements
 
