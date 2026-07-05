@@ -10,7 +10,7 @@
 
 ## State Machine
 
-Each phase (PomoPomo, Break) moves through:
+Each phase (Pomodoro, Break) moves through:
 
 ```
 idle → running → paused → completed
@@ -49,7 +49,7 @@ Day rollover is automatic: events after midnight go to the new day's file.
 
 ## Settings
 
-Persisted in `UserDefaults`: PomoPomo duration, break duration, auto-start, completed pomodoros in current cycle.
+Persisted in `UserDefaults`: Pomodoro duration, break duration, auto-start, completed pomodoros in current cycle.
 
 ## Launch at Login
 

@@ -50,13 +50,13 @@ public final class PomodoroEngine {
         phase.displayTitle
     }
 
-    /// Zero-based index of the pomodoro currently in progress during PomoPomo, if any.
+    /// Zero-based index of the pomodoro currently in progress during the Pomodoro phase, if any.
     public var activePomodoroIndexInCycle: Int? {
         guard phase == .pomoPomo else { return nil }
         return completedPomodorosInCycle % Settings.cycleLength
     }
 
-    /// Elapsed fraction (0...1) of the current PomoPomo phase, for progress UI.
+    /// Elapsed fraction (0...1) of the current Pomodoro phase, for progress UI.
     public var currentPomoPomoProgressFraction: Double {
         guard phase == .pomoPomo, totalSeconds > 0 else { return 0 }
         let elapsed = totalSeconds - remainingSeconds

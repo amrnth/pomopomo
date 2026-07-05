@@ -30,15 +30,15 @@ public enum LogEvent: Sendable, Equatable {
         case .panelOpened:
             "Panel opened"
         case let .pomoPomoStarted(number, durationMinutes):
-            "PomoPomo #\(number) started (\(durationMinutes) min)"
+            "Pomodoro #\(number) started (\(durationMinutes) min)"
         case .pomoPomoPaused:
-            "PomoPomo paused"
+            "Pomodoro paused"
         case .pomoPomoResumed:
-            "PomoPomo resumed"
+            "Pomodoro resumed"
         case .pomoPomoSkipped:
-            "PomoPomo skipped"
+            "Pomodoro skipped"
         case let .pomoPomoCompleted(durationMinutes):
-            "PomoPomo completed (\(durationMinutes) min)"
+            "Pomodoro completed (\(durationMinutes) min)"
         case .breakStarted:
             "Break started"
         case .breakSkipped:
@@ -46,13 +46,13 @@ public enum LogEvent: Sendable, Equatable {
         case .breakCompleted:
             "Break completed"
         case let .pomoPomoDurationChanged(minutes):
-            "PomoPomo duration changed to \(minutes) min"
+            "Pomodoro duration changed to \(minutes) min"
         case let .breakDurationChanged(minutes):
             "Break duration changed to \(minutes) min"
         case let .autoStartToggled(enabled):
             "Auto-start \(enabled ? "enabled" : "disabled")"
         case let .pomoPomoFastForwarded(seconds):
-            "PomoPomo fast-forwarded by \(seconds)s"
+            "Pomodoro fast-forwarded by \(seconds)s"
         case .timerReset:
             "Timer reset"
         case .appQuit:

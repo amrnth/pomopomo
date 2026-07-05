@@ -1,6 +1,6 @@
 # Pomopomo
 
-A native macOS menu-bar PomoPomo timer built with Swift Package Manager — no Xcode project required.
+A native macOS menu-bar Pomodoro timer built with Swift Package Manager — no Xcode project required.
 
 ## Build & Run
 
@@ -21,9 +21,9 @@ The app bundle is assembled at `build/Pomopomo.app` by `Scripts/bundle.sh`.
 
 - Live countdown in the menu bar (`25:00` format, ticks every second while running)
 - Click the status item to toggle a compact frosted-glass panel
-- PomoPomo / Break phases with play, pause, and skip
+- Pomodoro / Break phases with play, pause, and skip
 - Progress dots for the current 4-pomodoro cycle
-- Settings menu (⋮): PomoPomo/break durations, auto-start, quit
+- Settings menu (⋮): Pomodoro/break durations, auto-start, quit
 - Daily markdown activity log
 - Built-in MCP server for agent control (Claude Code, etc.)
 

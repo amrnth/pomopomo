@@ -75,7 +75,7 @@ struct MarkdownRendererTests {
     @Test func timelineLineFormatting() {
         let line = LogEvent.pomoPomoStarted(number: 2, durationMinutes: 25)
             .timelineLine(at: sampleDate, calendar: calendar)
-        #expect(line == "- 09:30 — PomoPomo #2 started (25 min)")
+        #expect(line == "- 09:30 — Pomodoro #2 started (25 min)")
     }
 
     @Test func timerResetTimelineLine() {

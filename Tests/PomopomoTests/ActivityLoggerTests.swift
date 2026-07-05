@@ -56,8 +56,8 @@ struct ActivityLoggerTests {
         #expect(content.contains("- First activity: 09:30"))
         #expect(content.contains("- Last activity: 09:30"))
         #expect(content.contains("- 09:30 — App launched"))
-        #expect(content.contains("- 09:30 — PomoPomo #1 started (25 min)"))
-        #expect(content.contains("- 09:30 — PomoPomo completed (25 min)"))
+        #expect(content.contains("- 09:30 — Pomodoro #1 started (25 min)"))
+        #expect(content.contains("- 09:30 — Pomodoro completed (25 min)"))
     }
 
     @Test func dayRolloverWritesSeparateFiles() throws {

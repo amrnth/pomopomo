@@ -37,7 +37,7 @@ The app bundle is assembled at `build/Pomopomo.app` by copying the release binar
 
 ### State Machine & Timer Flow
 
-The `PomodoroEngine` (PomopomoKit/Core/PomodoroEngine.swift) is the single source of truth, marked `@Observable` and `@MainActor`. Each phase (PomoPomo or Break) transitions through:
+The `PomodoroEngine` (PomopomoKit/Core/PomodoroEngine.swift) is the single source of truth, marked `@Observable` and `@MainActor`. Each phase (Pomodoro or Break) transitions through:
 
 ```
 idle → running → paused → completed
@@ -58,7 +58,7 @@ A 1-second `Timer` drives `tick()` calls. The engine maintains an `endDate` (cal
 
 The engine tracks `completedPomodorosInCycle` (0-3) to display progress dots. After 4 completed pomodoros, the cycle resets to 0. The `currentPomodoroNumber` is derived from this count: `(completedPomodorosInCycle % 4) + 1`.
 
-**Important:** The cycle advances when a pomodoro is completed (naturally or via skip), not when starting one. Breaking from phase PomoPomo to phase Break increments the cycle.
+**Important:** The cycle advances when a pomodoro is completed (naturally or via skip), not when starting one. Breaking from phase Pomodoro to phase Break increments the cycle.
 
 ### UI Hierarchy
 

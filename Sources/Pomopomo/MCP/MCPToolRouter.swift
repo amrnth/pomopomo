@@ -43,7 +43,7 @@ func configurePomodoroTools(on server: Server, coordinatorRef: CoordinatorRef) a
             ),
             Tool(
                 name: "skip",
-                description: "Skip the current phase and move to the next one (PomoPomo → Break or Break → PomoPomo)",
+                description: "Skip the current phase and move to the next one (Pomodoro → Break or Break → Pomodoro)",
                 inputSchema: emptyObjectSchema
             ),
             Tool(
@@ -62,7 +62,7 @@ func configurePomodoroTools(on server: Server, coordinatorRef: CoordinatorRef) a
             ),
             Tool(
                 name: "reset",
-                description: "Reset the timer completely — clears the pomodoro cycle and returns to idle PomoPomo phase",
+                description: "Reset the timer completely — clears the pomodoro cycle and returns to idle Pomodoro phase",
                 inputSchema: emptyObjectSchema
             ),
             Tool(

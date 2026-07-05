@@ -25,7 +25,7 @@ enum SettingsMenuBuilder {
             item.state = engine.pomoPomoDurationMinutes == minutes ? .on : .off
             pomoPomoMenu.addItem(item)
         }
-        let pomoPomoItem = NSMenuItem(title: "PomoPomo Duration", action: nil, keyEquivalent: "")
+        let pomoPomoItem = NSMenuItem(title: "Pomodoro Duration", action: nil, keyEquivalent: "")
         pomoPomoItem.submenu = pomoPomoMenu
         menu.addItem(pomoPomoItem)
 
