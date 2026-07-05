@@ -6,7 +6,7 @@ public enum PomodoroPhase: String, Codable, Sendable, Equatable {
 
     public var displayTitle: String {
         switch self {
-        case .pomoPomo: "Pomodoro"
+        case .pomoPomo: "PomoPomo"
         case .break: "Break"
         }
     }
